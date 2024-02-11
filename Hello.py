@@ -14,37 +14,61 @@
 
 import streamlit as st
 from streamlit.logger import get_logger
+import polars as pl
 
 LOGGER = get_logger(__name__)
 
-
 def run():
     st.set_page_config(
-        page_title="Hello",
-        page_icon="👋",
+        page_title="NARSIL",
+        page_icon="❇",
+        layout="wide"
     )
 
-    st.write("# Welcome to Streamlit! 👋")
+    st.write("# NARSIL WEAVE TERMINAL")
 
-    st.sidebar.success("Select a demo above.")
+    # todo: change to st.columns([3,1,1]) when width is figured out
+    col1, col2, col3 = st.columns(3)
 
-    st.markdown(
-        """
-        Streamlit is an open-source app framework built specifically for
-        Machine Learning and Data Science projects.
-        **👈 Select a demo from the sidebar** to see some examples
-        of what Streamlit can do!
-        ### Want to learn more?
-        - Check out [streamlit.io](https://streamlit.io)
-        - Jump into our [documentation](https://docs.streamlit.io)
-        - Ask a question in our [community
-          forums](https://discuss.streamlit.io)
-        ### See more complex demos
-        - Use a neural net to [analyze the Udacity Self-driving Car Image
-          Dataset](https://github.com/streamlit/demo-self-driving)
-        - Explore a [New York City rideshare dataset](https://github.com/streamlit/demo-uber-nyc-pickups)
-    """
-    )
+    with col1:
+      st.write(
+          """
+          ### CAPEX
+          Optimally allocate incoming capital
+          """
+      )
+      with st.form(key='my_form'):
+        username = st.text_input('Username')
+        password = st.text_input('Password')
+        st.form_submit_button('Login')
+
+    with col2:
+      st.write(
+          """
+          ### FABRICATION
+          Specify and manufacture bleeding-edge designs
+          """
+      )
+      with st.form(key='my_form2'):
+        username = st.text_input('Username')
+        password = st.text_input('Password')
+        st.form_submit_button('Login')
+
+    with col3:
+      st.write(
+          """
+          ### DEPLOYMENT
+          Deploy in-theatre for kinetic effect generation
+          """
+      )
+      with st.form(key='my_form3'):
+        username = st.text_input('Username')
+        password = st.text_input('Password')
+        st.form_submit_button('Login')
+
+    st.write("## Modelled Effect on Target")
+    x = st.button('ENGAGE')
+
 
 
 if __name__ == "__main__":
